@@ -1,4 +1,5 @@
 import '@testing-library/jest-dom';
+import { vi } from "vitest";
 import { TextDecoder, TextEncoder } from "util";
 
 if (typeof global.TextEncoder === "undefined") {
@@ -10,3 +11,4 @@ if (typeof global.TextDecoder === "undefined") {
 }
 
 global.IS_REACT_ACT_ENVIRONMENT = true;
+global.jest = vi;

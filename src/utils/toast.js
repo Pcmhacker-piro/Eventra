@@ -1,13 +1,14 @@
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 
 const AUTH_TOAST_ID = "auth-feedback";
 
-/** Auth flows: dismiss stale toasts, show one toast, navigate after it closes. */
 export function showAuthToast(message, onAfterClose) {
   toast.dismiss(AUTH_TOAST_ID);
   toast.success(message, {
-    toastId: AUTH_TOAST_ID,
-    autoClose: 2500,
-    onClose: onAfterClose,
+    id: AUTH_TOAST_ID,
+    duration: 2500,
   });
+  if (typeof onAfterClose === "function") {
+    setTimeout(onAfterClose, 2600);
+  }
 }
