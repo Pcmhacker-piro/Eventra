@@ -23,8 +23,8 @@ jest.mock('../utils/offlineQueue', () => ({
   clearQueue: jest.fn(),
 }));
 
-jest.mock('react-toastify', () => ({
-  toast: { info: jest.fn(), success: jest.fn(), error: jest.fn() },
+jest.mock('react-hot-toast', () => ({
+  toast: Object.assign(jest.fn(), { success: jest.fn(), error: jest.fn() }),
 }));
 
 const FUTURE_EXP = Math.floor(Date.now() / 1000) + 3600;

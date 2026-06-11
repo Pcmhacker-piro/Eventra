@@ -3,13 +3,11 @@ import { render, act } from "@testing-library/react";
 import TicketScanner from "./TicketScanner";
 
 // Mock toast to avoid errors during render
-jest.mock("react-toastify", () => ({
-  toast: {
+jest.mock("react-hot-toast", () => ({
+  toast: Object.assign(jest.fn(), {
     error: jest.fn(),
-    warning: jest.fn(),
     success: jest.fn(),
-    info: jest.fn(),
-  },
+  }),
 }));
 
 // We will track the stop promise to resolve it manually

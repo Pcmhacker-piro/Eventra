@@ -14,10 +14,8 @@ jest.mock("../../../utils/toast", () => ({
   }),
 }));
 
-jest.mock("react-toastify", () => ({
-  toast: {
-    error: jest.fn(),
-  },
+jest.mock("react-hot-toast", () => ({
+  toast: Object.assign(jest.fn(), { error: jest.fn() }),
 }));
 
 let container;

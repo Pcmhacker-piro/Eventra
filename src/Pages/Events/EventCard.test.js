@@ -48,8 +48,8 @@ jest.mock('../../components/common/StatusBadge', () => () => null);
 
 jest.mock('../../components/reminders/ReminderControls', () => () => null);
 
-jest.mock('react-toastify', () => ({
-  toast: { success: jest.fn(), error: jest.fn(), info: jest.fn() },
+jest.mock('react-hot-toast', () => ({
+  toast: Object.assign(jest.fn(), { success: jest.fn(), error: jest.fn() }),
 }));
 
 const baseEvent = {
@@ -162,7 +162,7 @@ describe('EventCard', () => {
 
   describe('bookmark interaction', () => {
     const { addBookmarkedEvent, removeBookmarkedEvent } = require('../../utils/bookmarkUtils');
-    const { toast } = require('react-toastify');
+    const { toast } = require('react-hot-toast');
 
     it('calls addBookmarkedEvent and shows toast when bookmarking an unbookmarked event', async () => {
       isEventBookmarked.mockReturnValue(false);
